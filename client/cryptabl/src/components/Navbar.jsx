@@ -4,6 +4,7 @@ import { AiOutlineClose } from 'react-icons/ai';
 
 import Cryptabl from '../assets/Cryptabl.svg';
 
+// NavbarItem function
 const NavbarItem = ({ title, classProps }) => {
     return (
         <li className={`mx-4 cursor-pointer ${classProps}`}>
@@ -12,14 +13,17 @@ const NavbarItem = ({ title, classProps }) => {
     );
 }
 
+// Navigation bar function
 const Navbar = () => {
     const [toggleMenu, setToggleMenu] = useState(false);
 
     return (
         <nav className='w-full flex md:justify-center justify-between items-center p-4'>
+            {/* Cryptabl logo */}
             <div className='md:flex-[0.5] flex-initial justify-center items-center'>
                 <img src={Cryptabl} alt='logo' className='w-32 cursor-pointer' />
             </div>
+            {/* Navbar items and login button */}
             <ul className='text-white md:flex hidden list-none flex-row justify-between items-center flex-initial'>
                 {['Market', 'Exchange', 'Learn More', 'Wallets'].map((item, index) => (
                     <NavbarItem key={item + index} title={item} />
@@ -28,6 +32,8 @@ const Navbar = () => {
                     Login
                 </li>
             </ul>
+            
+            {/* toggle menu to decide on what screen size it shows */}
             <div className='flex relative'>
                 {toggleMenu
                 ? <AiOutlineClose fontSize={28} className='text-white md:hidden cursor-pointer' onClick={() => setToggleMenu(false)}/>
